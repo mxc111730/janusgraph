@@ -227,7 +227,7 @@ public class ConfigurationManagementGraph {
      * @return List&lt;Map&lt;String, Object&gt;&gt;
      */
     public List<Map<String, Object>> getConfigurations() {
-        final List<Map<String, Object>> graphConfigurations = graph.traversal().V().has(PROPERTY_TEMPLATE, false).valueMap().toList();
+        final List<Map<String, Object>> graphConfigurations = graph.traversal().V().hasLabel(VERTEX_LABEL).valueMap().toList();
         return graphConfigurations.stream().map(this::deserializeVertexProperties).collect(Collectors.toList());
     }
 
